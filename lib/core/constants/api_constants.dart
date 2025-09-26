@@ -1,0 +1,12 @@
+class ApiConstants {
+  static const String baseUrl = "http://192.168.1.3:3000/api";
+
+  static const String login = "/user/login";
+  static const String register = "/user/signup";
+  static const String userList = "/user/all";
+  // receiveTimeout
+  static const int receiveTimeout = 30;
+
+  // connectTimeout
+  static const int connectionTimeout = 30;
+}
