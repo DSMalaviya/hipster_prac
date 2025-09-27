@@ -158,7 +158,7 @@ class ActionsView extends StatelessWidget {
       flex: 1,
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.black.withOpacity(0.3),
+          color: Colors.black.withValues(alpha: 0.3),
           borderRadius: BorderRadius.circular(6),
         ),
         child: Row(

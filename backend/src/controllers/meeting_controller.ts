@@ -102,17 +102,17 @@ export class MettingController {
     );
 
     //just for safty reason end meeting after 20 min of creation
-    setTimeout(async () => {
-      try {
-        await client.send(
-          new DeleteMeetingCommand({
-            MeetingId: meetingResponse.Meeting?.MeetingId,
-          })
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    }, 1200000);
+    // setTimeout(async () => {
+    //   try {
+    //     await client.send(
+    //       new DeleteMeetingCommand({
+    //         MeetingId: meetingResponse.Meeting?.MeetingId,
+    //       })
+    //     );
+    //   } catch (error) {
+    //     console.log(error);
+    //   }
+    // }, 1200000);
 
     //step 4: send response
     return res.status(200).json({

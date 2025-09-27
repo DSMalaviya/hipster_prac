@@ -83,7 +83,7 @@ class _IconButtonViewState extends State<IconButtonView> {
                   height: 36,
                   decoration: BoxDecoration(
                     color: widget.showBackgroundColor
-                        ? Colors.black.withOpacity(0.3)
+                        ? Colors.black.withValues(alpha: 0.3)
                         : null,
                     shape: BoxShape.circle,
                   ),
