@@ -9,11 +9,14 @@ import 'package:hipster_prac/data/data_provider/api_provider.dart';
 import 'package:hipster_prac/data/service/databaes_manager_service.dart';
 import 'package:hipster_prac/data/models/meeting_creation_model.dart';
 import 'package:hipster_prac/data/models/user_list_model.dart';
+import 'package:hipster_prac/data/service/firebase_app_service.dart';
 import 'package:hipster_prac/modules/meeting/meeting_screen.dart';
 
 class DashboardController extends GetxController {
   late final ApiProvider _apiProvider = Get.find<ApiProvider>();
   late final DatabaseManager _dbManager = Get.find<DatabaseManager>();
+  late final FirebaseAppService _firebaseAppService =
+      Get.find<FirebaseAppService>();
 
   final Rx<ResponseStatus> _userListResponseStatus =
       ResponseStatus.loading().obs;
@@ -23,6 +26,7 @@ class DashboardController extends GetxController {
   void onInit() {
     super.onInit();
     getUserList();
+    _firebaseAppService.initialAppOpenCallHandler();
   }
 
   //to start call

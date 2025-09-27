@@ -53,7 +53,7 @@ class FirebaseAppService extends GetxService {
     _addNotificationListener();
   }
 
-  void _addNotificationOpenListener() async {
+  Future<void> initialAppOpenCallHandler() async {
     RemoteMessage? initialMessage = await FirebaseMessaging.instance
         .getInitialMessage();
 
@@ -61,7 +61,9 @@ class FirebaseAppService extends GetxService {
       //handled call screen
       _showMeetingStartDialog(initialMessage);
     }
+  }
 
+  void _addNotificationOpenListener() {
     FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       log("Notification clicked");
       //handled call screen
