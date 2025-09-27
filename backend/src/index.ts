@@ -1,4 +1,4 @@
-import express, { Express } from "express";
+import express, { Express, Request, Response } from "express";
 import mongoose from "mongoose";
 import { Configs } from "./secrets";
 import rootRouter from "./routes";
@@ -18,6 +18,10 @@ mongoose
 app.use(express.json());
 
 app.use("/api", rootRouter);
+
+app.use("/test", (req: Request, res: Response) => {
+  return res.status(200).json({ message: "server is running fine!" });
+});
 
 app.use(errorMiddleware);
 
