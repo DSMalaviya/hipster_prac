@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "684597339253",
+    "project_id": "hipsterprac-5ede8",
+    "storage_bucket": "hipsterprac-5ede8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684597339253:android:0528d61fbbccb8f81c443c",
+        "android_client_info": {
+          "package_name": "com.example.hipster_prac"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCrxAcUnjmRpzXd__udwT16eG4WwD_km9I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
