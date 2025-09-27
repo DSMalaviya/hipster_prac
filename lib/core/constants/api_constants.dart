@@ -4,6 +4,8 @@ class ApiConstants {
   static const String login = "/user/login";
   static const String register = "/user/signup";
   static const String userList = "/user/all";
+  static const String createMeeting = "/meeting/create";
+  static const String endMeeting = "/meeting/end";
   // receiveTimeout
   static const int receiveTimeout = 30;
 

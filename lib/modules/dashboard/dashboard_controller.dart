@@ -1,9 +1,15 @@
 import 'package:get/get.dart';
+import 'package:hipster_prac/core/constants/string_constants.dart';
 import 'package:hipster_prac/core/errors/dio_exception.dart';
+import 'package:hipster_prac/core/helpers/loader_utils.dart';
+import 'package:hipster_prac/core/helpers/permission_helper.dart';
 import 'package:hipster_prac/core/helpers/response_status.dart';
+import 'package:hipster_prac/core/helpers/toast_utils.dart';
 import 'package:hipster_prac/data/data_provider/api_provider.dart';
-import 'package:hipster_prac/data/database_manager/databaes_manager_service.dart';
+import 'package:hipster_prac/data/service/databaes_manager_service.dart';
+import 'package:hipster_prac/data/models/meeting_creation_model.dart';
 import 'package:hipster_prac/data/models/user_list_model.dart';
+import 'package:hipster_prac/modules/meeting/meeting_screen.dart';
 
 class DashboardController extends GetxController {
   late final ApiProvider _apiProvider = Get.find<ApiProvider>();
@@ -17,6 +23,31 @@ class DashboardController extends GetxController {
   void onInit() {
     super.onInit();
     getUserList();
+  }
+
+  //to start call
+  Future<void> startMeeting(User user) async {
+    if (await PermissionHelper.checkCameraAndMicrophonePermission()) {
+      //start call api
+      LoaderUtils.showLoader();
+      try {
+        var response = await _apiProvider.createMeeting(userId: user.id ?? "");
+        MeetingCreationModel meetingCreationModel =
+            MeetingCreationModel.fromJson(response);
+        LoaderUtils.hideLoader();
+        //navigate to call details screen
+        Get.toNamed(
+          MeetingScreen.routeName,
+          arguments: {
+            ArgConstants.meetingDetailArg: meetingCreationModel.meetingDetails,
+            ArgConstants.isCallerArg: true,
+          },
+        );
+      } catch (e) {
+        LoaderUtils.hideLoader();
+        makeToast(toastData: e.toString());
+      }
+    }
   }
 
   Future<void> getUserList() async {

@@ -49,6 +49,17 @@ class _PlaceHolderListState extends State<PlaceHolderList> {
                 ),
               ),
             ),
+            const Spacer(),
+            Shimmer(
+              child: IconButton(
+                onPressed: () {},
+                icon: Icon(
+                  Icons.video_call_outlined,
+                  size: 30.h,
+                  color: ColorConstants.whiteShimmerColor,
+                ),
+              ),
+            ),
           ],
         );
       },

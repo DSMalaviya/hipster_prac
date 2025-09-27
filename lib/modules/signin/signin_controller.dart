@@ -6,11 +6,14 @@ import 'package:hipster_prac/core/helpers/toast_utils.dart';
 import 'package:hipster_prac/data/data_provider/api_provider.dart';
 import 'package:hipster_prac/data/models/signin_model.dart';
 import 'package:hipster_prac/data/preferences/preference_manager.dart';
+import 'package:hipster_prac/data/service/firebase_app_service.dart';
 import 'package:hipster_prac/modules/dashboard/dashboard_screen.dart';
 import 'package:hipster_prac/modules/signup/signup_screen.dart';
 
 class SigninController extends GetxController {
   late final ApiProvider _apiProvider = Get.find<ApiProvider>();
+  late final FirebaseAppService _firebaseAppService =
+      Get.find<FirebaseAppService>();
   late final PreferenceManager _preferenceManager = PreferenceManager();
 
   late final TextEditingController _emailController = TextEditingController();
@@ -45,7 +48,7 @@ class SigninController extends GetxController {
         var response = await _apiProvider.loginUser(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim(),
-          fcmToken: "",
+          fcmToken: _firebaseAppService.deviceToken,
         );
         SignInModel userLoginModel = SignInModel.fromJson(response);
         await _preferenceManager.setString(

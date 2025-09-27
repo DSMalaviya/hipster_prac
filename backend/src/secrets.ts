@@ -10,4 +10,5 @@ export class Configs {
     process.env.AWS_ACCESS_KEY_ID || "";
   public static readonly AWS_SECRET_ACCESS_KEY =
     process.env.AWS_SECRET_ACCESS_KEY || "";
+  public static readonly AWS_REGION = process.env.AWS_REGION || "";
 }

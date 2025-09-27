@@ -2,6 +2,8 @@ import 'package:get/get_navigation/src/routes/get_route.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:hipster_prac/modules/dashboard/dashboard_binding.dart';
 import 'package:hipster_prac/modules/dashboard/dashboard_screen.dart';
+import 'package:hipster_prac/modules/meeting/meeting_binding.dart';
+import 'package:hipster_prac/modules/meeting/meeting_screen.dart';
 import 'package:hipster_prac/modules/signin/signin_binding.dart';
 import 'package:hipster_prac/modules/signin/signin_screen.dart';
 import 'package:hipster_prac/modules/signup/signup_binding.dart';
@@ -33,6 +35,12 @@ class AppRoutes {
       name: DashboardScreen.routeName,
       page: () => const DashboardScreen(),
       binding: DashboardBinding(),
+      transition: Transition.cupertino,
+    ),
+    GetPage(
+      name: MeetingScreen.routeName,
+      page: () => const MeetingScreen(),
+      binding: MeetingBinding(),
       transition: Transition.cupertino,
     ),
   ];

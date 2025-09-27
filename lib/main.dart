@@ -1,3 +1,4 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -6,12 +7,15 @@ import 'package:hipster_prac/core/constants/color_constants.dart';
 import 'package:hipster_prac/core/constants/string_constants.dart';
 import 'package:hipster_prac/core/extensions/text_style_extensions.dart';
 import 'package:hipster_prac/data/data_provider/api_provider.dart';
-import 'package:hipster_prac/data/database_manager/databaes_manager_service.dart';
+import 'package:hipster_prac/data/service/databaes_manager_service.dart';
+import 'package:hipster_prac/data/service/firebase_app_service.dart';
+import 'package:hipster_prac/firebase_options.dart';
 import 'package:hipster_prac/modules/splash/splash_screen.dart';
 import 'package:hipster_prac/routes/app_routes.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -59,5 +63,6 @@ class InitialBindings extends Bindings {
   void dependencies() {
     Get.lazyPut(() => DatabaseManager());
     Get.lazyPut(() => ApiProvider());
+    Get.lazyPut(() => FirebaseAppService());
   }
 }

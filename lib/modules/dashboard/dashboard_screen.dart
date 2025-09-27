@@ -112,7 +112,9 @@ class _DashboardScreenState extends State<DashboardScreen> {
             ),
             SizedBox(width: 10.w),
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                _dashboardController.startMeeting(user);
+              },
               icon: Icon(
                 Icons.video_call_outlined,
                 size: 30.h,

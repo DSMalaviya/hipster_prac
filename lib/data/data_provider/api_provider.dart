@@ -64,4 +64,30 @@ class ApiProvider extends GetxService {
       rethrow;
     }
   }
+
+  Future<dynamic> createMeeting({required String userId}) async {
+    try {
+      dio.Response response = await _dioClient.post(
+        ApiConstants.createMeeting,
+        options: dio.Options(headers: await _getHeaders()),
+        data: {"userId": userId},
+      );
+      return response.data;
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  Future<dynamic> endMeeting({required String meetingId}) async {
+    try {
+      dio.Response response = await _dioClient.post(
+        ApiConstants.endMeeting,
+        options: dio.Options(headers: await _getHeaders()),
+        data: {"meetingId": meetingId},
+      );
+      return response.data;
+    } catch (e) {
+      rethrow;
+    }
+  }
 }

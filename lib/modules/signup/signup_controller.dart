@@ -6,11 +6,14 @@ import 'package:hipster_prac/core/helpers/toast_utils.dart';
 import 'package:hipster_prac/data/data_provider/api_provider.dart';
 import 'package:hipster_prac/data/models/signup_model.dart';
 import 'package:hipster_prac/data/preferences/preference_manager.dart';
+import 'package:hipster_prac/data/service/firebase_app_service.dart';
 import 'package:hipster_prac/modules/dashboard/dashboard_screen.dart';
 import 'package:hipster_prac/modules/signin/signin_screen.dart';
 
 class SignupController extends GetxController {
-  late final ApiProvider _apiProvider = ApiProvider();
+  late final ApiProvider _apiProvider = Get.find<ApiProvider>();
+  late final FirebaseAppService _firebaseAppService =
+      Get.find<FirebaseAppService>();
   late final PreferenceManager _preferenceManager = PreferenceManager();
 
   late final TextEditingController _emailController = TextEditingController();
@@ -33,6 +36,7 @@ class SignupController extends GetxController {
   void onClose() {
     super.onClose();
     _emailController.dispose();
+    _nameController.dispose();
     _passwordController.dispose();
   }
 
@@ -44,7 +48,7 @@ class SignupController extends GetxController {
         var response = await _apiProvider.registerUser(
           email: _emailController.text.trim(),
           password: _passwordController.text.trim(),
-          fcmToken: "",
+          fcmToken: _firebaseAppService.deviceToken,
           name: _nameController.text.trim(),
         );
         SignupModel userRegisterModel = SignupModel.fromJson(response);
