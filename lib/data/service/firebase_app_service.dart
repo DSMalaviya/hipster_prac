@@ -45,6 +45,8 @@ class FirebaseAppService extends GetxService {
 
   _fetchDeviceTokenAndListen() async {
     if (Platform.isIOS) {
+      //return as of now for ios as APNS is not setup
+      return;
       await FirebaseMessaging.instance.getAPNSToken();
     }
     _deviceToken = await FirebaseMessaging.instance.getToken() ?? '';
