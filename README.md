@@ -12,7 +12,7 @@
 
 ### Android APK
 
-- **Android APK link:** [Android apk](https://drive.google.com/file/d/1vSRiJBo_WjsXHTpbVTpByrnlGIzso7OV/view?usp=sharing)
+- **Android APK link:** [Android apk](https://drive.google.com/file/d/1a6B_ZPBS9HYCZzuE29KHMevRkVGj-d0n/view?usp=sharing)
 - **Working demo recording:** [Screen recording](https://drive.google.com/file/d/1CGhSgga70qoPW8Qc-CSWISD5uLZZFoXk/view?usp=sharing)
 
 ### To run the project, follow the steps below:
