@@ -28,6 +28,7 @@ class _MeetingScreenState extends State<MeetingScreen> {
       appBar: PreferredSize(
         preferredSize: Size(1.sw, 64.h),
         child: AppBar(
+          automaticallyImplyLeading: false,
           surfaceTintColor: ColorConstants.blackColor,
           backgroundColor: ColorConstants.blackColor,
           elevation: 0,
@@ -51,7 +52,10 @@ class _MeetingScreenState extends State<MeetingScreen> {
                 width: 140.w,
                 height: 40.h,
                 margin: EdgeInsets.only(bottom: bottomSafeArea),
-                decoration: BoxDecoration(color: ColorConstants.redColor),
+                decoration: BoxDecoration(
+                  color: ColorConstants.redColor,
+                  borderRadius: BorderRadius.circular(100.r),
+                ),
                 child: Icon(
                   Icons.call_end,
                   color: ColorConstants.whiteColor,
