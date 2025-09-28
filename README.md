@@ -7,9 +7,8 @@
 - **Xcode version:** 16.1
 - **Video call SDK:** AWS Chime
 - **CI/CD:** Github actions to build apk when code pushed on master branch.
-  Used on the backend; not required for the Flutter app to run
-- **Node.js version:** 22.20.0
-- **Database:** MongoDB 8.2
+- **Node.js version:** 22.20.0 (Used on the backend; not required for the Flutter app to run)
+- **Database:** MongoDB 8.2 ( Used on the backend; not required for the Flutter app to run)
 
 ### Android APK
 
